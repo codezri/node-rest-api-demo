@@ -1,7 +1,15 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-const sql = require('./db.js');
+const { createPool } = require('mysql2/promise');
+
+const sql = createPool({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
+  database: process.env.DB_NAME
+});
 
 app.use(express.json());
 
