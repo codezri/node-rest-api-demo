@@ -19,6 +19,8 @@ CREATE TABLE customer (
 
 DESCRIBE customer;
 
+/* States list credits: https://gist.github.com/JeremyMorgan/5833666  */
+
 INSERT INTO location (code, name) VALUES
 ('AL','Alabama'),
 ('AK','Alaska'),
