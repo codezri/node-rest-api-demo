@@ -7,9 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-
   load-test:
-
     runs-on: ubuntu-latest
 
     steps:
