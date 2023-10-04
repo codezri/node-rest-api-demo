@@ -24,6 +24,4 @@ jobs:
         resource: http://localhost:5000/locations
 
     - name: Execute load tests
-      uses: artilleryio/action-cli@v1
-      with:
-        command: run tests/demo_api_load.yml --target http://host.docker.internal:5000
+      run: npx artillery run tests/demo_api_load.yml
