@@ -43,7 +43,7 @@ app.post('/customers', async(req, res) => {
         const [locations] = await sql.query('SELECT * FROM location ORDER BY RAND() LIMIT 1');
         const locationId = locations.at(0).id;
         const [result] = await sql.query(`INSERT INTO customer(name, location_id) VALUES("${name}", ${locationId})`);
-        return res.json({
+        return res.status(201).json({
             id: result.insertId,
             name,
             location_id: locationId

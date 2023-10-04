@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "load-test": "artillery run tests/demo_api_load.yml"
   },
   "author": "",
   "license": "MIT",

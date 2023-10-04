@@ -1,0 +1,53 @@
+config:
+  target: http://localhost:5000
+  phases:
+    - duration: 20
+      arrivalRate: 5
+      name: Startup phase
+    - duration: 5
+      arrivalRate: 20
+      name: Peak phase
+    - duration: 10
+      arrivalRate: 2
+      name: Slow-down phase
+  plugins:
+    ensure: {}
+    expect: {}
+
+  payload:
+    path: customers.csv
+    fields:
+      - "name"
+
+  ensure:
+      thresholds:
+        - http.response_time.max: 500
+scenarios:
+  - flow:
+    - get:
+        url: "/locations"
+        capture:
+          - json: "$[:1].name"
+            as: firstCity
+        expect:
+          - statusCode: 200
+          - equals:
+              - "{{ firstCity }}"
+              - "Alaska"
+    - post:
+        url: "/customers"
+        capture:
+          - json: "$.name"
+            as: savedName
+        json:
+          name: "{{ name }}"
+        expect:
+          - statusCode: 201
+          - equals:
+              - "{{ savedName }}"
+              - "{{ name }}"
+    - get:
+        url: "/customers"
+        expect:
+          - statusCode: 200
+          - hasProperty: "[0].id"
