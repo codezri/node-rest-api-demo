@@ -14,5 +14,16 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    
     - name: Start the webservice
       run: docker-compose up
+      
+    - name: Wait for API
+      uses: iFaxity/wait-on-action@v1.1.0
+      with:
+        resource: http://localhost:5000/locations
+
+    - name: Execute load tests
+      uses: artilleryio/action-cli@v1
+      with:
+        command: run tests/demo_api_load.yml
