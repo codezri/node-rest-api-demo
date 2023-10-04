@@ -26,4 +26,4 @@ jobs:
     - name: Execute load tests
       uses: artilleryio/action-cli@v1
       with:
-        command: run tests/demo_api_load.yml
+        command: run tests/demo_api_load.yml --target http://host.docker.internal:5000
