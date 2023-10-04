@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  build:
+  load-test:
 
     runs-on: ubuntu-latest
 
