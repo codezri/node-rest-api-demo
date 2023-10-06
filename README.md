@@ -40,7 +40,7 @@ yarn load-test
 ```
 
 ## Credits
-Thanks [https://github.com/JeremyMorgan](Jeremy Morgan) for creating [this public Gist](https://gist.github.com/JeremyMorgan/5833666). I added US state details in the [demo_db.sql](./db_dumps/demo_db.sql) using this Gist content.
+Thanks [Jeremy Morgan](https://github.com/JeremyMorgan) for creating [this public Gist](https://gist.github.com/JeremyMorgan/5833666). I added US state details in the [demo_db.sql](./db_dumps/demo_db.sql) using this Gist content.
 
 ## License
 [MIT](LICENSE)
