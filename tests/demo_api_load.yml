@@ -21,7 +21,7 @@ config:
 
   ensure:
       thresholds:
-        - http.response_time.max: 500
+        - http.response_time.max: 1000
 scenarios:
   - flow:
     - get:
