@@ -21,7 +21,7 @@ http://localhost:5000
 
 ## How to run load tests
 This project uses the [Artillery test runner](https://github.com/artilleryio/artillery) to run load tests. First, install the Artillery CLI into your computer:
-```
+```bash
 npm install -g artillery@latest
 # --- or ---
 yarn global add artillery@latest
